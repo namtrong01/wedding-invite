@@ -1,0 +1,1582 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #f5f1e8 0%, #e8dcc0 100%);
+    color: #5d4e37;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.3) 0%,
+        rgba(0, 0, 0, 0.1) 50%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    text-align: center;
+    color: white;
+    z-index: 10;
+    margin-top: -50px;
+}
+
+.hero-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    font-weight: 300;
+    opacity: 0.9;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.hero-date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: white;
+    margin-top: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1s ease-out 0.6s both;
+    letter-spacing: 2px;
+}
+
+/* Save the Date Section */
+.save-date-section {
+    padding: 80px 0;
+    background: linear-gradient(145deg, #ffffff 0%, #f8f6f0 100%);
+    position: relative;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.save-date-section.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.save-date-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.save-date-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: #8b7355;
+    margin-bottom: 60px;
+    text-shadow: 2px 2px 4px rgba(196, 164, 132, 0.3);
+    letter-spacing: 2px;
+}
+
+.couple-names {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.bride-name, .groom-name {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #8b7355;
+    text-shadow: 2px 2px 4px rgba(196, 164, 132, 0.3);
+    letter-spacing: 2px;
+}
+
+.heart-symbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: heartbeat 3s ease-in-out infinite;
+}
+
+.heart-svg {
+    width: 80px;
+    height: 80px;
+    filter: drop-shadow(0 4px 8px rgba(196, 164, 132, 0.3));
+    transition: all 0.3s ease;
+}
+
+.heart-svg:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 6px 12px rgba(196, 164, 132, 0.4));
+}
+
+@keyframes heartbeat {
+    0%, 100% { 
+        transform: scale(1) rotate(0deg); 
+    }
+    25% { 
+        transform: scale(1.05) rotate(1deg); 
+    }
+    50% { 
+        transform: scale(1.08) rotate(0deg); 
+    }
+    75% { 
+        transform: scale(1.05) rotate(-1deg); 
+    }
+}
+
+/* Event Details Section */
+.event-details-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f5f1e8 0%, #e8dcc0 100%);
+    position: relative;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.event-details-section.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.event-details-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.ceremony-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #8b7355;
+    margin-bottom: 60px;
+    text-shadow: 2px 2px 4px rgba(196, 164, 132, 0.3);
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+}
+
+.ceremony-title::before,
+.ceremony-title::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #c4a484, transparent);
+}
+
+.ceremony-title::before {
+    left: -100px;
+}
+
+.ceremony-title::after {
+    right: -100px;
+}
+
+/* Section Titles */
+.section-title {
+    text-align: center;
+    margin: 50px 0 30px 0;
+}
+
+.section-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #8b7355;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+    padding: 0 20px;
+}
+
+.section-heading::before,
+.section-heading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #c4a484, transparent);
+}
+
+.section-heading::before {
+    left: -80px;
+}
+
+.section-heading::after {
+    right: -80px;
+}
+
+.date-time-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+}
+
+.date-card, .time-card {
+    text-align: center;
+    background: linear-gradient(145deg, #ffffff 0%, #f8f6f0 100%);
+    padding: 40px 30px;
+    border-radius: 25px;
+    box-shadow: 
+        0 15px 35px rgba(196, 164, 132, 0.25),
+        0 5px 15px rgba(196, 164, 132, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(196, 164, 132, 0.2);
+    min-width: 220px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.date-card:hover, .time-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 20px 40px rgba(196, 164, 132, 0.3),
+        0 8px 20px rgba(196, 164, 132, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.date-card::before, .time-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #c4a484, #d4c4a8, #c4a484);
+}
+
+/* Date Card Styling */
+.date-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(196, 164, 132, 0.2);
+}
+
+.month {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #8b7355;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.year {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #8b7355;
+}
+
+.day-number {
+    font-size: 5rem;
+    font-weight: 700;
+    color: #8b7355;
+    line-height: 1;
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(196, 164, 132, 0.2);
+    position: relative;
+}
+
+.day-number::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #c4a484, transparent);
+}
+
+.day-name {
+    font-size: 1.3rem;
+    color: #8b7355;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+
+/* Time Card Styling */
+.time-icon {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clock-svg {
+    width: 40px;
+    height: 40px;
+    animation: tick 2s ease-in-out infinite;
+}
+
+@keyframes tick {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.time-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin: 20px 0;
+}
+
+.hour, .minute {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #8b7355;
+    line-height: 1;
+    text-shadow: 2px 2px 4px rgba(196, 164, 132, 0.2);
+}
+
+.separator {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #c4a484;
+    animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.3; }
+}
+
+
+.venue-info {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(196, 164, 132, 0.2);
+    border: 1px solid rgba(196, 164, 132, 0.3);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.venue-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #8b7355;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.venue-address {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #8b7355;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.map-link {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: #c4a484;
+    text-decoration: none;
+    padding: 12px 25px;
+    border: 2px solid #c4a484;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.map-link:hover {
+    background: #c4a484;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(196, 164, 132, 0.3);
+}
+
+/* Timeline Section */
+.timeline-section {
+    margin: 50px 0;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(196, 164, 132, 0.2);
+    border: 1px solid rgba(196, 164, 132, 0.3);
+}
+
+.timeline-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #8b7355;
+    text-align: center;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(196, 164, 132, 0.3);
+    letter-spacing: 2px;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, #c4a484, #d4c4a8, #c4a484);
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    position: relative;
+    padding-top: 0;
+}
+
+.timeline-item:nth-child(odd) {
+    flex-direction: row;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline-time {
+    background: linear-gradient(145deg, #c4a484, #d4c4a8);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    box-shadow: 0 5px 15px rgba(196, 164, 132, 0.3);
+    position: relative;
+    z-index: 2;
+    min-width: 80px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.timeline-item:nth-child(odd) .timeline-time {
+    margin-right: 30px;
+}
+
+.timeline-item:nth-child(even) .timeline-time {
+    margin-left: 30px;
+}
+
+.timeline-content {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(196, 164, 132, 0.2);
+    border: 1px solid rgba(196, 164, 132, 0.3);
+    flex: 1;
+    max-width: 250px;
+    position: relative;
+}
+
+.timeline-item:nth-child(odd) .timeline-content::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid rgba(255, 255, 255, 0.95);
+}
+
+.timeline-item:nth-child(even) .timeline-content::before {
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid rgba(255, 255, 255, 0.95);
+}
+
+.timeline-event {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #8b7355;
+    margin-bottom: 8px;
+}
+
+.timeline-description {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    color: #5d4e37;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    background: linear-gradient(145deg, #c4a484, #d4c4a8);
+    border-radius: 50%;
+    box-shadow: 0 3px 8px rgba(196, 164, 132, 0.4);
+    z-index: 3;
+}
+
+/* Congratulations Section */
+.congratulations-section {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.congratulations-button {
+    background: linear-gradient(145deg, #ff69b4, #ffb6c1);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.congratulations-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(255, 105, 180, 0.4);
+    background: linear-gradient(145deg, #ffb6c1, #ff69b4);
+}
+
+.congratulations-icon {
+    font-size: 1.3rem;
+}
+
+.congratulations-text {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Gift Section */
+.gift-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.gift-button {
+    background: linear-gradient(145deg, #c4a484, #d4c4a8);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(196, 164, 132, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.gift-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(196, 164, 132, 0.4);
+    background: linear-gradient(145deg, #d4c4a8, #c4a484);
+}
+
+.gift-icon {
+    font-size: 1.3rem;
+}
+
+.gift-text {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background: linear-gradient(145deg, #ffffff 0%, #f8f6f0 100%);
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #c4a484, #d4c4a8);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.close {
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #ff6b6b;
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.qr-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.qr-code {
+    display: inline-block;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 2px solid #c4a484;
+}
+
+.qr-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.qr-image:hover {
+    transform: scale(1.05);
+}
+
+.account-info {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(196, 164, 132, 0.3);
+    margin-bottom: 20px;
+}
+
+.account-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.account-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(196, 164, 132, 0.2);
+}
+
+.account-item:last-child {
+    border-bottom: none;
+}
+
+.account-label {
+    font-weight: 600;
+    color: #8b7355;
+    font-size: 1rem;
+}
+
+.account-value {
+    font-weight: 500;
+    color: #5d4e37;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.modal-footer {
+    text-align: center;
+}
+
+.copy-button {
+    background: linear-gradient(145deg, #8b7355, #c4a484);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(139, 115, 85, 0.3);
+}
+
+.copy-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(139, 115, 85, 0.4);
+    background: linear-gradient(145deg, #c4a484, #8b7355);
+}
+
+/* Congratulations Form */
+.congratulations-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #8b7355;
+    margin-bottom: 8px;
+}
+
+.form-input, .form-textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid rgba(196, 164, 132, 0.3);
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    color: #5d4e37;
+    background: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-input:focus, .form-textarea:focus {
+    outline: none;
+    border-color: #c4a484;
+    box-shadow: 0 0 0 3px rgba(196, 164, 132, 0.2);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.send-button {
+    background: linear-gradient(145deg, #ff69b4, #ffb6c1);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+}
+
+.send-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+    background: linear-gradient(145deg, #ffb6c1, #ff69b4);
+}
+
+/* Confetti Animation */
+.confetti-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    animation: confettiFall 4s linear infinite;
+}
+
+.confetti-1 {
+    left: 10%;
+    animation-delay: 0s;
+    background: #ff69b4;
+}
+
+.confetti-2 {
+    left: 20%;
+    animation-delay: 0.5s;
+    background: #ffb6c1;
+}
+
+.confetti-3 {
+    left: 30%;
+    animation-delay: 1s;
+    background: #c4a484;
+}
+
+.confetti-4 {
+    left: 40%;
+    animation-delay: 1.5s;
+    background: #ffd700;
+}
+
+.confetti-5 {
+    left: 50%;
+    animation-delay: 2s;
+    background: #ff69b4;
+}
+
+.confetti-6 {
+    left: 60%;
+    animation-delay: 2.5s;
+    background: #ffb6c1;
+}
+
+.confetti-7 {
+    left: 70%;
+    animation-delay: 3s;
+    background: #c4a484;
+}
+
+.confetti-8 {
+    left: 80%;
+    animation-delay: 3.5s;
+    background: #ffd700;
+}
+
+.confetti-9 {
+    left: 15%;
+    animation-delay: 0.8s;
+    background: #ff69b4;
+}
+
+.confetti-10 {
+    left: 85%;
+    animation-delay: 1.8s;
+    background: #ffd700;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Side Decorations */
+.side-decoration {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 200px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.left-decoration {
+    left: 0;
+}
+
+.right-decoration {
+    right: 0;
+}
+
+/* Ceremony Side Decorations */
+.ceremony-side-decoration {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.ceremony-flower {
+    position: absolute;
+    animation: ceremonyFlowerFloat 8s ease-in-out infinite;
+}
+
+.ceremony-flower-left-1 {
+    top: 15%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.ceremony-flower-left-2 {
+    top: 45%;
+    left: 10%;
+    animation-delay: 2.5s;
+}
+
+.ceremony-flower-left-3 {
+    top: 75%;
+    left: 25%;
+    animation-delay: 5s;
+}
+
+.ceremony-flower-right-1 {
+    top: 20%;
+    right: 15%;
+    animation-delay: 1.5s;
+}
+
+.ceremony-flower-right-2 {
+    top: 50%;
+    right: 5%;
+    animation-delay: 4s;
+}
+
+.ceremony-flower-right-3 {
+    top: 80%;
+    right: 20%;
+    animation-delay: 6.5s;
+}
+
+.ceremony-flower-svg {
+    width: 35px;
+    height: 35px;
+    filter: drop-shadow(0 3px 6px rgba(255, 105, 180, 0.3));
+    animation: ceremonyFlowerRotate 10s linear infinite;
+}
+
+@keyframes ceremonyFlowerFloat {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg); 
+    }
+    25% { 
+        transform: translateY(-12px) rotate(3deg); 
+    }
+    50% { 
+        transform: translateY(-8px) rotate(0deg); 
+    }
+    75% { 
+        transform: translateY(-18px) rotate(-3deg); 
+    }
+}
+
+@keyframes ceremonyFlowerRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.flower-decoration {
+    position: absolute;
+    animation: flowerFloat 6s ease-in-out infinite;
+}
+
+.flower-left-1 {
+    top: 20%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.flower-left-2 {
+    top: 60%;
+    left: 10%;
+    animation-delay: 3s;
+}
+
+.flower-right-1 {
+    top: 30%;
+    right: 15%;
+    animation-delay: 1.5s;
+}
+
+.flower-right-2 {
+    top: 70%;
+    right: 25%;
+    animation-delay: 4.5s;
+}
+
+.flower-svg {
+    width: 30px;
+    height: 30px;
+    filter: drop-shadow(0 2px 4px rgba(255, 105, 180, 0.3));
+    animation: flowerRotate 8s linear infinite;
+}
+
+@keyframes flowerFloat {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg); 
+    }
+    25% { 
+        transform: translateY(-10px) rotate(5deg); 
+    }
+    50% { 
+        transform: translateY(-5px) rotate(0deg); 
+    }
+    75% { 
+        transform: translateY(-15px) rotate(-5deg); 
+    }
+}
+
+@keyframes flowerRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Running Banner */
+.running-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(135deg, #8b7355, #c4a484);
+    overflow: hidden;
+    z-index: 1000;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    white-space: nowrap;
+    animation: scrollBanner 20s linear infinite;
+}
+
+.banner-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+    padding: 0 20px;
+    display: inline-block;
+    animation: bannerTextGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes bannerTextGlow {
+    0% {
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3), 0 0 5px rgba(255, 255, 255, 0.3);
+    }
+    100% {
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 255, 255, 0.6);
+    }
+}
+
+@keyframes scrollBanner {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero-date {
+        font-size: 1rem;
+        margin-top: 12px;
+    }
+    
+    .save-date-title {
+        font-size: 2.5rem;
+    }
+    
+    .bride-name, .groom-name {
+        font-size: 2.2rem;
+    }
+    
+    .heart-svg {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .ceremony-title {
+        font-size: 2.2rem;
+    }
+    
+    .ceremony-title::before,
+    .ceremony-title::after {
+        width: 50px;
+    }
+    
+    .ceremony-title::before {
+        left: -70px;
+    }
+    
+    .ceremony-title::after {
+        right: -70px;
+    }
+    
+    .section-heading {
+        font-size: 1.3rem;
+    }
+    
+    .section-heading::before,
+    .section-heading::after {
+        width: 40px;
+    }
+    
+    .section-heading::before {
+        left: -60px;
+    }
+    
+    .section-heading::after {
+        right: -60px;
+    }
+    
+    .date-time-info {
+        gap: 25px;
+    }
+    
+    .date-card, .time-card {
+        padding: 30px 20px;
+        min-width: 180px;
+    }
+    
+    .day-number {
+        font-size: 4rem;
+    }
+    
+    .hour, .minute {
+        font-size: 3rem;
+    }
+    
+    .separator {
+        font-size: 3rem;
+    }
+    
+    .clock-svg {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .venue-info {
+        padding: 30px 20px;
+    }
+    
+    .venue-title {
+        font-size: 1.3rem;
+    }
+    
+    .venue-address {
+        font-size: 1rem;
+    }
+    
+    /* Hide side decorations on tablet */
+    .side-decoration {
+        display: none;
+    }
+    
+    .ceremony-side-decoration {
+        display: none;
+    }
+    
+    .confetti {
+        width: 6px;
+        height: 6px;
+    }
+    
+    /* Modal responsive */
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+    
+    .modal-header {
+        padding: 15px 20px;
+    }
+    
+    .modal-title {
+        font-size: 1.5rem;
+    }
+    
+    .modal-body {
+        padding: 20px;
+    }
+    
+    .qr-image {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .account-info {
+        padding: 20px;
+    }
+    
+    .account-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .account-label {
+        font-size: 0.9rem;
+    }
+    
+    .account-value {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-date {
+        font-size: 0.9rem;
+        margin-top: 10px;
+        letter-spacing: 1px;
+    }
+    
+    .save-date-title {
+        font-size: 2rem;
+    }
+    
+    .bride-name, .groom-name {
+        font-size: 1.8rem;
+    }
+    
+    .heart-svg {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .ceremony-title {
+        font-size: 1.8rem;
+    }
+    
+    .ceremony-title::before,
+    .ceremony-title::after {
+        width: 30px;
+    }
+    
+    .ceremony-title::before {
+        left: -50px;
+    }
+    
+    .ceremony-title::after {
+        right: -50px;
+    }
+    
+    .section-heading {
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+    }
+    
+    .section-heading::before,
+    .section-heading::after {
+        width: 30px;
+    }
+    
+    .section-heading::before {
+        left: -45px;
+    }
+    
+    .section-heading::after {
+        right: -45px;
+    }
+    
+    .couple-names {
+        gap: 20px;
+    }
+    
+    .date-time-info {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .date-card, .time-card {
+        padding: 25px 15px;
+        min-width: 150px;
+    }
+    
+    .day-number {
+        font-size: 3.5rem;
+    }
+    
+    .hour, .minute {
+        font-size: 2.5rem;
+    }
+    
+    .separator {
+        font-size: 2.5rem;
+    }
+    
+    .clock-svg {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .month, .year {
+        font-size: 1rem;
+    }
+    
+    .day-name {
+        font-size: 1rem;
+    }
+    
+    .venue-info {
+        padding: 20px 15px;
+    }
+    
+    .venue-title {
+        font-size: 1.1rem;
+    }
+    
+    .venue-address {
+        font-size: 0.9rem;
+    }
+    
+    .map-link {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+    
+    /* Hide side decorations on mobile */
+    .side-decoration {
+        display: none;
+    }
+    
+    .ceremony-side-decoration {
+        display: none;
+    }
+    
+    .confetti {
+        width: 5px;
+        height: 5px;
+    }
+    
+    /* Timeline mobile responsive */
+    .timeline-section {
+        padding: 20px 15px;
+        margin: 30px 0;
+    }
+    
+    .timeline-title {
+        font-size: 1.8rem;
+    }
+    
+    .timeline-container::before {
+        left: 25px;
+    }
+    
+    .timeline-item {
+        flex-direction: row !important;
+        margin-left: 50px;
+        margin-bottom: 30px;
+        align-items: center;
+    }
+    
+    .timeline-item:nth-child(even) {
+        flex-direction: row !important;
+    }
+    
+    .timeline-time {
+        margin-right: 15px !important;
+        margin-left: 0 !important;
+        min-width: 60px;
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+    
+    .timeline-content {
+        max-width: 180px;
+        padding: 15px 20px;
+    }
+    
+    .timeline-content::before {
+        left: -8px !important;
+        right: auto !important;
+        border-right: 8px solid rgba(255, 255, 255, 0.95) !important;
+        border-left: none !important;
+    }
+    
+    .timeline-item::after {
+        left: 25px;
+        width: 12px;
+        height: 12px;
+    }
+    
+    .timeline-event {
+        font-size: 1.1rem;
+    }
+    
+    .timeline-description {
+        font-size: 0.9rem;
+    }
+    
+    /* Modal mobile responsive */
+    .modal-content {
+        width: 98%;
+        margin: 5% auto;
+    }
+    
+    .modal-header {
+        padding: 15px;
+    }
+    
+    .modal-title {
+        font-size: 1.3rem;
+    }
+    
+    .modal-body {
+        padding: 15px;
+    }
+    
+    .qr-image {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .account-info {
+        padding: 15px;
+    }
+    
+    .gift-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    
+    .copy-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
