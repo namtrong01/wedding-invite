@@ -324,6 +324,7 @@ function toggleMusic() {
         isPlaying = false;
     } else {
         // Play music
+        music.muted = false;
         music.play().then(() => {
             musicIcon.textContent = '⏸️';
             musicButton.classList.add('playing');
@@ -339,21 +340,62 @@ function toggleMusic() {
 
 // Initialize music when page loads
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize music after a short delay to ensure everything is loaded
-    setTimeout(() => {
-        initMusic();
+    // Initialize music immediately
+    initMusic();
+    
+    // Try multiple auto-play strategies
+    function attemptAutoPlay() {
+        if (!music) return;
         
-        // Try to auto-play (may be blocked by browser)
-        music.play().then(() => {
-            const musicIcon = document.getElementById('musicIcon');
-            const musicButton = document.getElementById('musicToggle');
-            musicIcon.textContent = '⏸️';
-            musicButton.classList.add('playing');
-            isPlaying = true;
-        }).catch(error => {
-            console.log('Auto-play prevented, user interaction required');
-            const musicIcon = document.getElementById('musicIcon');
-            musicIcon.textContent = '▶️';
-        });
-    }, 1000);
+        // Set volume and unmute
+        music.volume = 0.3;
+        music.muted = false;
+        music.currentTime = 0;
+        
+        const playPromise = music.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                // Successfully started playing
+                const musicIcon = document.getElementById('musicIcon');
+                const musicButton = document.getElementById('musicToggle');
+                musicIcon.textContent = '⏸️';
+                musicButton.classList.add('playing');
+                isPlaying = true;
+                console.log('Music auto-played successfully');
+            }).catch(error => {
+                console.log('Auto-play prevented:', error);
+                // Try again after user interaction
+                const musicIcon = document.getElementById('musicIcon');
+                musicIcon.textContent = '▶️';
+                
+                // Add click listener to any element for first interaction
+                const playOnInteraction = () => {
+                    music.muted = false;
+                    music.play().then(() => {
+                        const musicIcon = document.getElementById('musicIcon');
+                        const musicButton = document.getElementById('musicToggle');
+                        musicIcon.textContent = '⏸️';
+                        musicButton.classList.add('playing');
+                        isPlaying = true;
+                    });
+                    document.removeEventListener('click', playOnInteraction);
+                    document.removeEventListener('touchstart', playOnInteraction);
+                };
+                
+                document.addEventListener('click', playOnInteraction);
+                document.addEventListener('touchstart', playOnInteraction);
+            });
+        }
+    }
+    
+    // Try auto-play with different delays
+    attemptAutoPlay();
+    
+    // Try again after a short delay
+    setTimeout(attemptAutoPlay, 500);
+    setTimeout(attemptAutoPlay, 1000);
+    
+    // Try when page is fully loaded
+    window.addEventListener('load', attemptAutoPlay);
 });
