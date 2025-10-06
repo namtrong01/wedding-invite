@@ -92,8 +92,8 @@ body {
     letter-spacing: 2px;
 }
 
-/* Save the Date Section */
-.save-date-section {
+/* Love Story Section */
+.love-story-section {
     padding: 80px 0;
     background: linear-gradient(145deg, #ffffff 0%, #f8f6f0 100%);
     position: relative;
@@ -102,18 +102,18 @@ body {
     transition: all 0.8s ease;
 }
 
-.save-date-section.animate {
+.love-story-section.animate {
     opacity: 1;
     transform: translateY(0);
 }
 
-.save-date-content {
+.love-story-content {
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
 }
 
-.save-date-title {
+.love-story-title {
     font-family: 'Dancing Script', cursive;
     font-size: 3.5rem;
     font-weight: 600;
@@ -121,6 +121,22 @@ body {
     margin-bottom: 60px;
     text-shadow: 2px 2px 4px rgba(196, 164, 132, 0.3);
     letter-spacing: 2px;
+}
+
+.love-story-text {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+.story-paragraph {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    color: #5d4e37;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    text-align: center;
+    text-indent: 0;
 }
 
 .couple-names {
@@ -176,7 +192,7 @@ body {
 
 /* Event Details Section */
 .event-details-section {
-    padding: 80px 0;
+    padding: 80px 0 100px 0;
     background: linear-gradient(135deg, #f5f1e8 0%, #e8dcc0 100%);
     position: relative;
     opacity: 0;
@@ -600,7 +616,10 @@ body {
 /* Congratulations Section */
 .congratulations-section {
     margin-top: 50px;
+    margin-bottom: 30px;
     text-align: center;
+    position: relative;
+    z-index: 1002;
 }
 
 .congratulations-button {
@@ -618,6 +637,8 @@ body {
     align-items: center;
     gap: 10px;
     margin-bottom: 20px;
+    position: relative;
+    z-index: 1002;
 }
 
 .congratulations-button:hover {
@@ -637,7 +658,10 @@ body {
 /* Gift Section */
 .gift-section {
     margin-top: 20px;
+    margin-bottom: 80px;
     text-align: center;
+    position: relative;
+    z-index: 1002;
 }
 
 .gift-button {
@@ -654,6 +678,8 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 10px;
+    position: relative;
+    z-index: 1002;
 }
 
 .gift-button:hover {
@@ -1195,6 +1221,60 @@ body {
     }
 }
 
+/* Music Player */
+.music-player {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+}
+
+.music-button {
+    background: linear-gradient(145deg, #c4a484, #d4c4a8);
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(196, 164, 132, 0.3);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.music-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(196, 164, 132, 0.4);
+    background: linear-gradient(145deg, #d4c4a8, #c4a484);
+}
+
+.music-button:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+#musicIcon {
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.music-button.playing #musicIcon {
+    animation: musicPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-title {
@@ -1210,8 +1290,13 @@ body {
         margin-top: 12px;
     }
     
-    .save-date-title {
+    .love-story-title {
         font-size: 2.5rem;
+    }
+    
+    .story-paragraph {
+        font-size: 1rem;
+        line-height: 1.7;
     }
     
     .bride-name, .groom-name {
@@ -1366,8 +1451,18 @@ body {
         letter-spacing: 1px;
     }
     
-    .save-date-title {
+    .love-story-title {
         font-size: 2rem;
+    }
+    
+    .story-paragraph {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+    
+    .love-story-text {
+        max-width: 90%;
     }
     
     .bride-name, .groom-name {
@@ -1578,5 +1673,20 @@ body {
     .copy-button {
         padding: 10px 20px;
         font-size: 0.9rem;
+    }
+    
+    /* Music player mobile responsive */
+    .music-player {
+        top: 15px;
+        right: 15px;
+    }
+    
+    .music-button {
+        width: 50px;
+        height: 50px;
+    }
+    
+    #musicIcon {
+        font-size: 1.2rem;
     }
 }

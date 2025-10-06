@@ -36,8 +36,8 @@
         </div>
     </section>
 
-    <!-- Save the Date Section -->
-    <section class="save-date-section">
+    <!-- Love Story Section -->
+    <section class="love-story-section">
         <!-- Side decorations -->
         <div class="side-decoration left-decoration">
             <div class="flower-decoration flower-left-1">
@@ -86,17 +86,15 @@
         </div>
         
         <div class="container">
-            <div class="save-date-content">
-                <h2 class="save-date-title">Save the Date</h2>
-                <div class="couple-names">
-                    <h3 class="groom-name">Trọng Nam</h3>
-                    <div class="heart-symbol">
-                        <svg viewBox="0 0 120 120" class="heart-svg">
-                            <path d="M60,95 C60,95 25,65 25,40 C25,30 35,20 45,20 C50,20 60,30 60,30 C60,30 70,20 75,20 C85,20 95,30 95,40 C95,65 60,95 60,95 Z" 
-                                  stroke="#c4a484" stroke-width="3" fill="rgba(196, 164, 132, 0.1)"/>
-                        </svg>
-                    </div>
-                    <h3 class="bride-name">Linh Chi</h3>
+            <div class="love-story-content">
+                <h2 class="love-story-title">Our Love Story</h2>
+                <div class="love-story-text">
+                    <p class="story-paragraph">Chúng tôi quen nhau từ thuở ấu thơ – khi cả hai còn là những cô cậu học trò ngây ngô ngồi chung một lớp. Năm tháng ấy, chúng tôi chỉ là những người bạn cùng lớp, biết nhau qua những giờ học, những buổi đến trường, nhưng chưa thật sự thân thiết. Giữa những tiếng trống trường vang lên mỗi ngày, chỉ là đôi ba lần chào hỏi, vài kỷ niệm thoáng qua của tuổi thơ trong sáng.</p>
+                    
+                    <p class="story-paragraph">Thời gian lặng lẽ trôi qua, tình bạn trong sáng năm nào dần trở thành sợi dây gắn bó bền chặt hơn. Khi bước vào tuổi 18 – cái tuổi đẹp nhất của thanh xuân, chúng tôi nhận ra rằng, tình cảm dành cho nhau không còn chỉ là bạn bè. Tình yêu đến nhẹ nhàng nhưng sâu sắc, lớn dần cùng chúng tôi qua từng năm tháng. </p>
+                    
+                    <p class="story-paragraph">Từ tuổi 18 đến 25 – quãng thời gian của những ước mơ, của những khát vọng và cả những thử thách, chúng tôi đã cùng nhau đi qua bao thăng trầm, cùng trưởng thành và thấu hiểu giá trị của sự đồng hành.</p>
+                    <p class="story-paragraph">Và hôm nay, sau chặng đường dài ấy, chúng tôi hạnh phúc được chia sẻ niềm vui này với gia đình và bạn bè thân yêu. Từ những người bạn nhỏ năm xưa, giờ đây chúng tôi trở thành bạn đời – cùng nhau viết tiếp hành trình yêu thương, vun đắp tổ ấm và cùng nắm tay đi hết quãng đời còn lại.</p>
                 </div>
             </div>
         </div>
@@ -211,7 +209,7 @@
                 </div>
                 
                 <div class="venue-info">
-                    <h3 class="venue-title"NHÀ HÀNG CÔNG VIÊN 76</h3>
+                    <h3 class="venue-title">NHÀ HÀNG CÔNG VIÊN 76</h3>
                     <p class="venue-address">Số 36 - Ngõ 76 An Dương<br>
                         Phường Hồng Hà - Hà Nội</p>
                     <a href="https://www.google.com/maps/place/T%E1%BB%95+h%E1%BB%A3p+C%C3%B4ng+vi%C3%AAn+76/@21.0557109,105.8383916,17z/data=!3m1!4b1!4m6!3m5!1s0x3135abf1c34ac5ef:0xb0eb16f8530c0989!8m2!3d21.0557109!4d105.8409665!16s%2Fg%2F11h4cjly4j?entry=ttu&g_ep=EgoyMDI1MTAwMS4wIKXMDSoASAFQAw%3D%3D" 
@@ -348,6 +346,17 @@
         <div class="banner-content">
             <span class="banner-text">💕 Trọng Nam & Linh Chi 💕 17:00, thứ bảy ngày 18.10.2025 🎉 Sự có mặt của bạn là niềm vui của chúng tôi 💒</span>
         </div>
+    </div>
+    
+    <!-- Background Music Player -->
+    <div class="music-player">
+        <button id="musicToggle" class="music-button" onclick="toggleMusic()">
+            <span id="musicIcon">🎵</span>
+        </button>
+        <audio id="backgroundMusic" loop>
+            <source src="music.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
     </div>
     
     <script src="script.js"></script>

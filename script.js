@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
 
     // Observe sections for animation
-    const sections = document.querySelectorAll('.save-date-section, .event-details-section');
+    const sections = document.querySelectorAll('.love-story-section, .event-details-section');
     sections.forEach(section => {
         observer.observe(section);
     });
@@ -273,4 +273,87 @@ document.addEventListener('keydown', function(event) {
         closeGiftModal();
         closeCongratulationsModal();
     }
+});
+
+// Background Music Functions
+let isPlaying = false;
+let music = null;
+
+function initMusic() {
+    music = document.getElementById('backgroundMusic');
+    const musicButton = document.getElementById('musicToggle');
+    const musicIcon = document.getElementById('musicIcon');
+    
+    // Set initial volume
+    music.volume = 0.3;
+    
+    // Add event listeners
+    music.addEventListener('loadstart', function() {
+        console.log('Music loading...');
+    });
+    
+    music.addEventListener('canplaythrough', function() {
+        console.log('Music ready to play');
+    });
+    
+    music.addEventListener('error', function(e) {
+        console.log('Music error:', e);
+        musicIcon.textContent = '❌';
+    });
+    
+    music.addEventListener('ended', function() {
+        // This shouldn't happen since we have loop attribute, but just in case
+        music.currentTime = 0;
+        music.play();
+    });
+}
+
+function toggleMusic() {
+    if (!music) {
+        initMusic();
+    }
+    
+    const musicButton = document.getElementById('musicToggle');
+    const musicIcon = document.getElementById('musicIcon');
+    
+    if (isPlaying) {
+        // Pause music
+        music.pause();
+        musicIcon.textContent = '🎵';
+        musicButton.classList.remove('playing');
+        isPlaying = false;
+    } else {
+        // Play music
+        music.play().then(() => {
+            musicIcon.textContent = '⏸️';
+            musicButton.classList.add('playing');
+            isPlaying = true;
+        }).catch(error => {
+            console.log('Auto-play prevented:', error);
+            // Show play button for user interaction
+            musicIcon.textContent = '▶️';
+            musicButton.title = 'Click to play music';
+        });
+    }
+}
+
+// Initialize music when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize music after a short delay to ensure everything is loaded
+    setTimeout(() => {
+        initMusic();
+        
+        // Try to auto-play (may be blocked by browser)
+        music.play().then(() => {
+            const musicIcon = document.getElementById('musicIcon');
+            const musicButton = document.getElementById('musicToggle');
+            musicIcon.textContent = '⏸️';
+            musicButton.classList.add('playing');
+            isPlaying = true;
+        }).catch(error => {
+            console.log('Auto-play prevented, user interaction required');
+            const musicIcon = document.getElementById('musicIcon');
+            musicIcon.textContent = '▶️';
+        });
+    }, 1000);
 });
