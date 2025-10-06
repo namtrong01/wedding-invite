@@ -2,7 +2,10 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="theme-color" content="#c4a484">
+    <meta name="description" content="Thiệp cưới của Linh Chi & Trọng Nam - 18.10.2025">
+    <meta name="format-detection" content="telephone=no">
     <title>Thiệp Cưới - Linh Chi & Trọng Nam</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
@@ -11,7 +14,11 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-image-container">
-            <img src="a22_full.jpg" alt="Linh Chi & Trọng Nam" class="hero-image" id="heroImage">
+            <picture>
+                <source media="(max-width: 480px)" srcset="a22_full.jpg" sizes="100vw">
+                <source media="(max-width: 768px)" srcset="a22_full.jpg" sizes="100vw">
+                <img src="a22_full.jpg" alt="Linh Chi & Trọng Nam" class="hero-image" id="heroImage" loading="eager">
+            </picture>
             <div class="hero-overlay">
                 <div class="hero-content">
                     <h1 class="hero-title">Trọng Nam & Linh Chi</h1>
@@ -313,7 +320,11 @@
             <div class="modal-body">
                 <div class="qr-section">
                     <div class="qr-code">
-                        <img src="qr.jpg" alt="QR Code" class="qr-image">
+                        <picture>
+                            <source media="(max-width: 480px)" srcset="qr.jpg" sizes="120px">
+                            <source media="(max-width: 768px)" srcset="qr.jpg" sizes="150px">
+                            <img src="qr.jpg" alt="QR Code" class="qr-image" loading="lazy">
+                        </picture>
                     </div>
                 </div>
                 <div class="account-info">

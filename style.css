@@ -10,6 +10,10 @@ body {
     color: #5d4e37;
     line-height: 1.6;
     overflow-x: hidden;
+    /* Optimize for mobile performance */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 .container {
@@ -38,6 +42,9 @@ body {
     object-fit: cover;
     object-position: center;
     transition: transform 0.3s ease;
+    /* Optimize for mobile performance */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
 }
 
 .hero-overlay {
@@ -493,6 +500,9 @@ body {
     position: relative;
     max-width: 600px;
     margin: 0 auto;
+    /* Optimize for mobile performance */
+    will-change: transform;
+    contain: layout style;
 }
 
 .timeline-container::before {
@@ -555,6 +565,10 @@ body {
     flex: 1;
     max-width: 250px;
     position: relative;
+    transition: all 0.3s ease;
+    /* Optimize for mobile touch */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
 }
 
 .timeline-item:nth-child(odd) .timeline-content::before {
@@ -1275,6 +1289,18 @@ body {
     }
 }
 
+/* Image optimization for mobile */
+picture {
+    display: block;
+    width: 100%;
+}
+
+picture img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-title {
@@ -1380,6 +1406,17 @@ body {
         font-size: 1rem;
     }
     
+    /* Optimize images for tablet */
+    .hero-image {
+        image-rendering: auto;
+        will-change: transform;
+    }
+    
+    .qr-image {
+        max-width: 150px;
+        max-height: 150px;
+    }
+    
     /* Hide side decorations on tablet */
     .side-decoration {
         display: none;
@@ -1392,6 +1429,37 @@ body {
     .confetti {
         width: 6px;
         height: 6px;
+    }
+    
+    /* Timeline tablet responsive */
+    .timeline-section {
+        padding: 30px 20px;
+    }
+    
+    .timeline-container::before {
+        left: 30px;
+    }
+    
+    .timeline-item {
+        margin-left: 60px;
+        margin-bottom: 40px;
+    }
+    
+    .timeline-time {
+        min-width: 80px;
+        font-size: 0.95rem;
+        padding: 12px 15px;
+    }
+    
+    .timeline-content {
+        padding: 20px 25px;
+        max-width: 300px;
+    }
+    
+    .timeline-item::after {
+        left: 30px;
+        width: 16px;
+        height: 16px;
     }
     
     /* Modal responsive */
@@ -1565,6 +1633,20 @@ body {
         padding: 10px 20px;
     }
     
+    /* Optimize images for mobile */
+    .hero-image {
+        image-rendering: auto;
+        will-change: transform;
+        /* Reduce parallax on mobile for better performance */
+        transform: none !important;
+    }
+    
+    .qr-image {
+        max-width: 120px;
+        max-height: 120px;
+        object-fit: contain;
+    }
+    
     /* Hide side decorations on mobile */
     .side-decoration {
         display: none;
@@ -1579,25 +1661,33 @@ body {
         height: 5px;
     }
     
-    /* Timeline mobile responsive */
+    /* Timeline mobile responsive - simplified design */
     .timeline-section {
-        padding: 20px 15px;
+        padding: 25px 15px;
         margin: 30px 0;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(196, 164, 132, 0.15);
     }
     
     .timeline-title {
         font-size: 1.8rem;
+        margin-bottom: 30px;
     }
     
+    /* Simplified vertical timeline for mobile */
     .timeline-container::before {
-        left: 25px;
+        left: 20px;
+        width: 2px;
+        background: linear-gradient(to bottom, #c4a484, #d4c4a8);
     }
     
     .timeline-item {
         flex-direction: row !important;
-        margin-left: 50px;
-        margin-bottom: 30px;
-        align-items: center;
+        margin-left: 45px;
+        margin-bottom: 35px;
+        align-items: flex-start;
+        position: relative;
     }
     
     .timeline-item:nth-child(even) {
@@ -1607,35 +1697,73 @@ body {
     .timeline-time {
         margin-right: 15px !important;
         margin-left: 0 !important;
-        min-width: 60px;
-        font-size: 0.9rem;
-        padding: 8px 12px;
+        min-width: 70px;
+        font-size: 0.85rem;
+        padding: 10px 12px;
+        background: linear-gradient(145deg, #c4a484, #d4c4a8);
+        color: white;
+        border-radius: 20px;
+        text-align: center;
+        font-weight: 600;
+        box-shadow: 0 4px 12px rgba(196, 164, 132, 0.3);
+        flex-shrink: 0;
     }
     
     .timeline-content {
-        max-width: 180px;
-        padding: 15px 20px;
+        max-width: none;
+        width: 100%;
+        padding: 18px 20px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(196, 164, 132, 0.1);
+        border: 1px solid rgba(196, 164, 132, 0.2);
+        margin-left: 0;
     }
     
     .timeline-content::before {
-        left: -8px !important;
-        right: auto !important;
-        border-right: 8px solid rgba(255, 255, 255, 0.95) !important;
-        border-left: none !important;
+        display: none; /* Hide arrow on mobile for cleaner look */
     }
     
     .timeline-item::after {
-        left: 25px;
-        width: 12px;
-        height: 12px;
+        left: 20px;
+        width: 14px;
+        height: 14px;
+        background: linear-gradient(145deg, #c4a484, #d4c4a8);
+        border: 3px solid white;
+        box-shadow: 0 2px 8px rgba(196, 164, 132, 0.4);
     }
     
     .timeline-event {
         font-size: 1.1rem;
+        font-weight: 600;
+        color: #8b7355;
+        margin-bottom: 8px;
     }
     
     .timeline-description {
         font-size: 0.9rem;
+        color: #5d4e37;
+        line-height: 1.5;
+        margin: 0;
+    }
+    
+    /* Timeline animation for mobile */
+    .timeline-item {
+        opacity: 0;
+        transform: translateX(-20px);
+        animation: timelineSlideIn 0.6s ease-out forwards;
+    }
+    
+    .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+    .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+    .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+    .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+    
+    @keyframes timelineSlideIn {
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
     }
     
     /* Modal mobile responsive */

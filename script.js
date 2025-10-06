@@ -20,14 +20,20 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(section);
     });
 
-    // Hero image parallax effect
+    // Hero image parallax effect (disabled on mobile for performance)
     const heroImage = document.getElementById('heroImage');
     if (heroImage) {
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const parallax = scrolled * 0.5;
-            heroImage.style.transform = `translateY(${parallax}px)`;
-        });
+        function handleParallax() {
+            // Only apply parallax on larger screens
+            if (window.innerWidth > 768) {
+                const scrolled = window.pageYOffset;
+                const parallax = scrolled * 0.5;
+                heroImage.style.transform = `translateY(${parallax}px)`;
+            }
+        }
+        
+        window.addEventListener('scroll', handleParallax);
+        window.addEventListener('resize', handleParallax);
     }
 
     // Smooth scrolling for any internal links
